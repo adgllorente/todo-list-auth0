@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Configuration for Auth0 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  </head>
+  <body data-ng-app="todoList">
+    <!-- listCmp template to show the list -->
+    <script type="text/ng-template" id="list-tmpl.html">
+      <h1>TODO list</h1>
+      <!-- What an anonymous users see. Just a button to login -->
+      <div data-ng-if="!$root.isAuth">
+        <p>Login to show a TODO list</p>
+        <button data-ng-click="$ctrl.login()">Login</button>
+      </div>
+      <!-- What logged in users see. A list of tasks. -->
+      <div data-ng-if="$root.isAuth">
+        <ul data-ng-if="$root.isAuth">
+          <li data-ng-repeat="item in $ctrl.items"
+              data-ng-bind="item.title">
+          </li>
+        </ul>
+        <button data-ng-click="$ctrl.logout()" data-ng-if="$root.isAuth">Logout</button>
+      </div>
+    </script>
+
+    <!-- Instantiate main component to show a list of tasks -->
+    <list-cmp></list-cmp>
+    <!-- General purpose libraries -->
+    <script src="./angular/angular.min.js"></script>
+
+    <!-- AngularJS modules needed by Auth0-->
+    <script src="./angular-jwt/dist/angular-jwt.min.js"></script>
+    <script src="./angular-storage/dist/angular-storage.min.js"></script>
+    <script src="./auth0-angular/build/auth0-angular.min.js"></script>
+    <script src="./angular-animate/angular-animate.min.js"></script>
+    <script src="./angular-aria/angular-aria.min.js"></script>
+    <script src="./angular-route/angular-route.min.js"></script>
+
+    <!-- Auth JS libraries -->
+    <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script>
+
+    <!-- App files -->
+    <script src="./index.js"></script>
+    <script src="./auth-svc.js"></script>
+    <script src="./list-cmp.js"></script>
+    <script src="./list-svc.js"></script>
+  </body>
+</html>

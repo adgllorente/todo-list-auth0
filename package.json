@@ -1,0 +1,33 @@
+{
+  "name": "todo-list-auth0",
+  "version": "1.0.0",
+  "description": "A todo list example applitation build with AngularJS and Express and integrated with Auth0",
+  "main": "index.js",
+  "scripts": {
+    "start-web": "node web/server.js",
+    "start-api": "node api/index.js",
+    "start": "npm run start-api & npm run start-web"
+  },
+  "keywords": [
+    "auth0",
+    "angularjs",
+    "expressjs",
+    "test",
+    "demo"
+  ],
+  "author": "Adrián G. <http://adgllorente.com>",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-jwt": "^0.1.3",
+    "angular-route": "^1.5.8",
+    "angular-storage": "0.0.15",
+    "auth0-angular": "^4.2.3",
+    "cors": "^2.8.0",
+    "express": "^4.14.0",
+    "express-jwt": "^3.4.0"
+  },
+  "devDependencies": {}
+}
